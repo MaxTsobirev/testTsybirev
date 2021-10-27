@@ -14,8 +14,8 @@ namespace Kordamine
             int suurus = int.Parse(Console.ReadLine());
             return suurus;
         }
-        static int[,] saal = new int[,] { }; // пишет запятую между размерами залов
-        static int[] ost = new int[] { };
+        static int[,] saal = new int[,] { }; //создает двмерный массив
+        static int[] ost = new int[] { };// создает список купленных билетов
         static int kohad, read, mitu, mitu_veel;
         static void Saali_taitmine(int suurus)
         {
@@ -27,7 +27,7 @@ namespace Kordamine
             else
             { kohad = 30; read = 20; }
             saal = new int[read, kohad];
-            for (int rida = 0; rida < read; rida++) // заполнение
+            for (int rida = 0; rida < read; rida++) // рандомное заполнение массивов
             {
                 for (int koht = 0; koht < kohad; koht++)
                 {
@@ -47,15 +47,15 @@ namespace Kordamine
             }
 
             Console.WriteLine();
-            for (int rida = 0; rida < read; rida++)
+            for (int rida = 0; rida < read; rida++)//начинает выписывать места в зале
             {
                 Console.Write("Rjad " + (rida + 1).ToString() + ":"); // выписывает нумерование рядов
                 for (int koht = 0; koht < kohad; koht++)
                 {
 
-                    Console.Write(saal[rida, koht] + "  ");
+                    Console.Write(saal[rida, koht] + "  ");// выписывает места
                 }
-                Console.WriteLine();
+                Console.WriteLine();//пустая строка после окончания мест
             }
         }
         static void Muuk() // покупка нескольких билетов
@@ -64,10 +64,10 @@ namespace Kordamine
             int pileti_rida = int.Parse(Console.ReadLine());
             Console.WriteLine("Skolko biletov:");
             mitu = int.Parse(Console.ReadLine());
-            ost = new int[mitu];
-            int p = (kohad - mitu) / 2; //пользователь выбирает место и от него по-очередно слева и справа выбирает еще свободные места до тех пор пока мест не будет столько сколько выбрал человек либо если не будет занятых мест
+            ost = new int[mitu];//массив покупки билетов
+            int p = (kohad - mitu) / 2; //ставит отсчет так, чтобы места выбранные пользователем были в центре
             bool t = false;
-            int k = 0;
+            int k = 0;// счетчик
             do
             {
                 if (saal[pileti_rida, p] == 0)// если в зале на каком либо месте стоит 0 то оно свободно
@@ -87,7 +87,7 @@ namespace Kordamine
                 }
                 p = p + 1;// + к месту
                 k++;
-            } while (mitu != k);
+            } while (mitu != k);// выполняется пока не будет найдено достаточно мест
             if (t == true)
             {
                 Console.WriteLine("Vashi mesta:"); // показывает места которые выбрал пользователь
