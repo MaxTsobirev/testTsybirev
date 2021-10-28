@@ -16,22 +16,22 @@ namespace Kordamine
         }
         static int[,] saal = new int[,] { }; //создает двмерный массив
         static int[] ost = new int[] { };// создает список купленных билетов
-        static int kohad, read, mitu, mitu_veel;
+        static int kohad, read, mitu, mitu_veel;//хранение переменных
         static void Saali_taitmine(int suurus)
         {
             Random rnd = new Random();//создание залов:маленький(20 на 10), средний(20 на 20), большой(30 на 20)
-            if (suurus == 1)
+            if (suurus == 1)//при выборе 1 покзывает 20 мест и 10 рядов
             { kohad = 20; read = 10; }
-            else if (suurus == 2)
+            else if (suurus == 2)//при выборе 2 покзывает 20 мест и 20 рядов
             { kohad = 20; read = 20; }
             else
-            { kohad = 30; read = 20; }
+            { kohad = 30; read = 20; }//при выборе 3 покзывает 30 мест и 20 рядов
             saal = new int[read, kohad];
-            for (int rida = 0; rida < read; rida++) // рандомное заполнение массивов
+            for (int rida = 0; rida < read; rida++) // цикл на  рандомное заполнение массивов
             {
-                for (int koht = 0; koht < kohad; koht++)
+                for (int koht = 0; koht < kohad; koht++)// цикл на добавление мест если их нет 
                 {
-                    saal[rida, koht] = rnd.Next(0, 2);
+                    saal[rida, koht] = rnd.Next(0, 2);// генерирует новые значения rida , koht
                 }
             }
         }
