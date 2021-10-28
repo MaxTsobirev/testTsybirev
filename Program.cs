@@ -60,9 +60,9 @@ namespace Kordamine
         }
         static void Muuk() // покупка нескольких билетов
         {
-            Console.WriteLine("Rjad:");
+            Console.WriteLine("Rjad:");//выбор ряда
             int pileti_rida = int.Parse(Console.ReadLine());
-            Console.WriteLine("Skolko biletov:");
+            Console.WriteLine("Skolko biletov:");//выбор сколько билетов нужно
             mitu = int.Parse(Console.ReadLine());
             ost = new int[mitu];//массив покупки билетов
             int p = (kohad - mitu) / 2; //ставит отсчет так, чтобы места выбранные пользователем были в центре
